@@ -1,5 +1,6 @@
 ﻿using Core.CrossCuttingConcerns.Exceptions;
 using RentACar.Application.Services.Repositories;
+using RentACar.Domain.Entities;
 
 namespace RentACar.Application.Features.Brands.Rules;
 public class BrandBusinessRules
@@ -17,5 +18,11 @@ public class BrandBusinessRules
         if (brand is null) return;
 
         throw new BusinessException("Brand name is already exist.");
+    }
+
+    public void BrandShouldExistWhenCalledGetByIdMethod(Brand brand)
+    {
+        if (brand is null)
+            throw new BusinessException("Brand not found.");
     }
 }

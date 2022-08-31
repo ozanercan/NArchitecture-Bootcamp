@@ -9,6 +9,7 @@ public class CreateBrandCommandRequestValidator : AbstractValidator<CreateBrandC
     {
         RuleFor(x => x.Name)
             .NotNull()
-            .NotEmpty();
+            .NotEmpty()
+            .MinimumLength(2);
     }
 }
